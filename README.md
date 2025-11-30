@@ -1,6 +1,6 @@
 # How to reproduce
 
-Change the `opentelemetry-javaagent` in the file `build.sbt` to try another version.
+Change the `opentelemetry-javaagent` version in the file `build.sbt` to try another version.
 
 Then run:
 
@@ -9,7 +9,11 @@ Then run:
 sbt compile stage
 
 # Run it
-OTEL_SERVICE_NAME="test" OTEL_METRICS_EXPORTER=console OTEL_LOGS_EXPORTER=none OTEL_TRACES_EXPORTER=none ./target/universal/stage/bin/play-scala-seed
+OTEL_SERVICE_NAME="test" \
+    OTEL_METRICS_EXPORTER=console \
+    OTEL_LOGS_EXPORTER=none \
+    OTEL_TRACES_EXPORTER=none \
+    ./target/universal/stage/bin/play-scala-seed
 
 # Navigate to http://localhost:9000/ once or twice
 # Wait for the console to output metrics (several seconds)
